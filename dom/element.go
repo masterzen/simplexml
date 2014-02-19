@@ -157,8 +157,9 @@ func (node *Element) Bytes(out *bytes.Buffer, indent bool, indentType string, le
 			child.Bytes(out, indent, indentType, level + 1)
 		}
 	} else if node.content != "" {
-		val := []byte(node.content)
-		xml.EscapeText(out, val)
+		//val := []byte(node.content)
+		//xml.EscapeText(out, val)
+		out.WriteString(node.content)
 	}
 	
 	if !empty && len(node.name.Local) > 0 {
